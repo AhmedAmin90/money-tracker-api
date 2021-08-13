@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  resources :expenses
-  resources :items
-  devise_for :users
+  namespace :api do
+    namespace :v1 do
+      resources :expenses
+      resources :items
+      
+    end
+  end
+  resources :sessions
+  # devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
