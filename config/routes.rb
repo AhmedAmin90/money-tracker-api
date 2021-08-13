@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       
     end
   end
+  resources :users 
   resources :sessions
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "users/registrations"}
