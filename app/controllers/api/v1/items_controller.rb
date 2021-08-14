@@ -52,7 +52,7 @@ module Api
 
         # Only allow a list of trusted parameters through.
         def item_params
-          params.permit(:name, :user_id)
+          params.permit(:name, :user_id , :icon)
         end
     end
   end
