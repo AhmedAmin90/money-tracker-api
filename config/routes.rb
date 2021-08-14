@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :expenses
       resources :items
-      
     end
   end
   resources :users , only: [:index , :show]

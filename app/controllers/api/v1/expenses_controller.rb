@@ -20,7 +20,7 @@ module Api
         @expense = Expense.new(expense_params)
     
         if @expense.save
-          render json: @expense, status: :created, location: @expense
+          render json: @expense, status: :created
         else
           render json: @expense.errors, status: :unprocessable_entity
         end
@@ -48,7 +48,7 @@ module Api
     
         # Only allow a list of trusted parameters through.
         def expense_params
-          params.require(:expense).permit(:expense, :item_id)
+          params.permit(:expense, :item_id)
         end
       end
   end

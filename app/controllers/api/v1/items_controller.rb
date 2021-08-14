@@ -12,7 +12,11 @@ module Api
 
       # GET /items/1
       def show
-        render json: @item
+        render json: {
+          item: @item,
+          username: @item.user.username,
+          expenses: @item.expenses
+        }
       end
 
       # POST /items
@@ -20,7 +24,7 @@ module Api
         @item = Item.new(item_params)
 
         if @item.save
-          render json: @item, status: :created, location: @item
+          render json: @item, status: :created
         else
           render json: @item.errors, status: :unprocessable_entity
         end
@@ -48,7 +52,7 @@ module Api
 
         # Only allow a list of trusted parameters through.
         def item_params
-          params.require(:item).permit(:name, :user_id)
+          params.permit(:name, :user_id)
         end
     end
   end
