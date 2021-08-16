@@ -9,9 +9,16 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       # render json: @user
       # @items = @user.items
+      @total = 0
+      @user.items.each do |item|
+        item.expenses.each do |expense|
+            @total = @total + expense.expense
+         end
+      end
       render json: {
         user: @user,
-        items: @user.items
+        items: @user.items,
+        total: @total
       }
     end
   end
