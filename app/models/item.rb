@@ -4,5 +4,4 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :user_id, presence: true, uniqueness: { scope: :name }
-
 end
