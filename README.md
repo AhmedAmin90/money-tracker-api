@@ -1,24 +1,70 @@
-# README
+# Money tracker api
+> This is a back end project for money tracker application, The Final capstone project in Microverse. This is a money tracker application for tracking expenses for unlimited items for each user.  
+# In this application:
+- I created three models: 
+1. User model using devise.
+2. Items model.
+3. Expenses model.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Built With
+- Ruby (v. 2.7.2).
+- Ruby on Rails (v. 6.1.1).
+- Rubocop.
+- RSpec.
+- Capybara.
+- Devise.
+- Deployed to Heroku.-
 
-Things you may want to cover:
+ 
+## Setup
 
-* Ruby version
+1. To run this project locally, please ensure you have Ruby and Ruby on Rails installed on your machine.
+2. Open the terminal.
+3. Clone this repository by running:
 
-* System dependencies
+```bash
+git clone https://github.com/AhmedAmin90/money-tracker-api
+```
 
-* Configuration
+4. Install gems: Enter to the folder of the project in your local machine and After that write in the terminal: 
 
-* Database creation
+```bash
+bundle install
+```
 
-* Database initialization
 
-* How to run the test suite
+5. Setup database with:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+   rails db:create
+   rails db:migrate
+```
 
-* Deployment instructions
+6. Setup seed file to initiate Categories:
 
-* ...
+```
+   rails db:seed
+```
+
+7. Open the local server:
+
+```bash
+bin/rails server
+```
+
+
+## Authors
+
+**Ahmed Amin** 
+- GitHub: [@AhmedAmin90](https://github.com/AhmedAmin90)
+- LinkedIn: [Ahmed Amin](https://www.linkedin.com/in/web-developer/)
+
+
+
+## Contribute
+Any advice and suggestion for improvement are more than welcome.
+Visit [issues' section](https://github.com/AhmedAmin90/money-tracker-api/issues)
+
+## Show your support
+Give a star if you like this project!
+
