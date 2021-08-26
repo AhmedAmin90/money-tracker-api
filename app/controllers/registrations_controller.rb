@@ -6,7 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render json: @user, status: :created
     else
       render json: { errors: @user.errors,
-                     message: 'Email is already in use. If you are the owner then try to login.',
                      status: :unauthorized }
     end
   end
@@ -14,6 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def user_params
-    params.permit(:username, :email, :password)
+    params.permit(:username, :password)
   end
 end
