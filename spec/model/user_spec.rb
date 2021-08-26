@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
   describe 'Relations' do
     it { should have_many(:items) }
   end
-  describe 'name Presence' do
+  describe 'username Presence' do
     it { should validate_uniqueness_of(:username) }
   end
 

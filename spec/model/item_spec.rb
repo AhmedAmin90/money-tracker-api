@@ -12,8 +12,4 @@ RSpec.describe Item, type: :model do
   describe 'User Presence' do
     it { should validate_presence_of(:user_id) }
   end
-
-  describe 'Image Presence' do
-    it { should validate_uniqueness_of(:user_id).scoped_to(:name) }
-  end
 end
