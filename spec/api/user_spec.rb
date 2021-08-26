@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'users api', type: :request do
   describe 'Get method' do
     it 'Returns all users' do
-      FactoryBot.build(:user, username: 'Test' , password: '123456')
+      FactoryBot.build(:user, username: 'Test', password: '123456')
       get '/users'
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body).size).to eq(1)

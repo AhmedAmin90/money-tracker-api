@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def create
     @user = User.new(user_params)
 
@@ -10,7 +9,6 @@ class UsersController < ApplicationController
                      status: :unauthorized }
     end
   end
-
 
   def index
     @users = User.all
