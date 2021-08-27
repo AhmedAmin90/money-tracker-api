@@ -8,4 +8,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :items
   validates_uniqueness_of :username
+
+  def total
+    @total = 0
+    items.each do |item|
+      @total += item.expenses.sum(:expense)
+    end
+
+    @total
+  end
 end

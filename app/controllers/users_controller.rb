@@ -18,18 +18,11 @@ class UsersController < ApplicationController
   # GET /cats/1
   def show
     @user = User.find(params[:id])
-    # render json: @user
-    # @items = @user.items
-    @total = 0
-    @user.items.each do |item|
-      item.expenses.each do |expense|
-        @total += expense.expense
-      end
-    end
+
     render json: {
       user: @user,
       items: @user.items,
-      total: @total
+      total: @user.total
     }
   end
 
