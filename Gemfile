@@ -27,6 +27,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rake'
 gem 'rack-cors'
 gem 'whenever', require: false
+gem 'httparty'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 group :development, :test do
