@@ -56,11 +56,12 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "money_tracker_api_app_production"
 
   config.action_mailer.perform_caching = true
+  config.cache_store = :redis_store , 'redis://localhost:6379/0/cache', { expires_in: 1.minutes }
 
-  config.action_dispatch.rack_cache = {
-    metastore: "redis://localhost:6379/1/metastore",
-    entitystore: "redis://localhost:6379/1/entitystore"
-  }
+  # config.action_dispatch.rack_cache = {
+  #   metastore: "redis://localhost:6379/1/metastore",
+  #   entitystore: "redis://localhost:6379/1/entitystore"
+  # }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
