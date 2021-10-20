@@ -28,6 +28,9 @@ gem 'rake'
 gem 'rack-cors'
 gem 'whenever', require: false
 gem 'httparty'
+gem 'redis'
+gem 'hiredis'
+
 gem 'redis-rails'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible

@@ -85,6 +85,7 @@ GEM
     ffi (1.15.3)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    hiredis (0.6.3)
     httparty (0.20.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -242,6 +243,7 @@ DEPENDENCIES
   byebug
   devise
   factory_bot_rails
+  hiredis
   httparty
   jwt
   listen (~> 3.3)
@@ -250,6 +252,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.1.4)
   rake
+  redis
   redis-rack-cache
   redis-rails
   rspec-rails
