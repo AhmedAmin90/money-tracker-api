@@ -56,8 +56,21 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "money_tracker_api_app_production"
 
   config.action_mailer.perform_caching = true
-  config.cache_store = :redis_cache_store, { url: ENV['redis://:p973510dfa7b2b44e4ec7980c7d0c7ba3db0326539257090afe34d3e916e16ce9@ec2-18-211-227-63.compute-1.amazonaws.com:27979'] }
+  # config.cache_store = :redis_cache_store, { url: ENV['redis://:p973510dfa7b2b44e4ec7980c7d0c7ba3db0326539257090afe34d3e916e16ce9@ec2-18-211-227-63.compute-1.amazonaws.com:27979'] }
 
+  config.cache_store = :redis_cache_store, { url: 'redis://:p973510dfa7b2b44e4ec7980c7d0c7ba3db0326539257090afe34d3e916e16ce9@ec2-18-211-227-63.compute-1.amazonaws.com:27979',
+
+    connect_timeout:    30,  # Defaults to 20 seconds
+    read_timeout:       0.2, # Defaults to 1 second
+    write_timeout:      0.2, # Defaults to 1 second
+    reconnect_attempts: 1,   # Defaults to 0
+  
+    error_handler: -> (method:, returning:, exception:) {
+      # Report errors to Sentry as warnings
+      Raven.capture_exception exception, level: 'warning',
+        tags: { method: method, returning: returning }
+    }
+  }
   # config.cache_store = :redis_store , 'redis://localhost:6379/0/cache', { expires_in: 1.minutes }
   # config.action_dispatch.rack_cache = {
   #   metastore: "redis://localhost:6379/1/metastore",
