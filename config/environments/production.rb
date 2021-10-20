@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "money_tracker_api_app_production"
 
   config.action_mailer.perform_caching = true
-  config.cache_store = :redis_store , 'redis://localhost:6379/0/cache', { expires_in: 1.minutes }
+  # config.cache_store = :redis_store , 'redis://localhost:6379/0/cache', { expires_in: 1.minutes }
 
   # config.action_dispatch.rack_cache = {
   #   metastore: "redis://localhost:6379/1/metastore",
