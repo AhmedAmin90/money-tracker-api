@@ -51,12 +51,50 @@
 
 
 
+# namespace :user do
+#     namespace :seed do
+#         task :create_users => :environment do
+            
+#             User.all.each do |user|
+#                 if user.id == 56
+#                     puts 'Yes'
+#                     response = HTTParty.post('https://fcm.googleapis.com/fcm/send',
+#                         headers: { 'Content-Type' => 'application/json'  ,
+#                              'Authorization' => 'key=AAAAvc7uZ-s:APA91bGn0VR5gKNLSz9LcKhkHv1JB_p8sGPlVII63yZd0qTjRwenddQdUYA8XvKD1zObcgGyLqqAMUU4c6UZgGLaUvglK5FFKLGMge8LnQrjNDemscmkaYG4rR3YskwEN6cePPzb_L_i'},
+#                              body:{
+#                                 "to"  => "/topics/ahmed",
+#                                 "notification"  => {
+#                                     "title"  => "#{user.username}",
+#                                     "body"  => "body2",
+#                                     "sound"  => "default"
+#                                 },
+#                                 "android"  => {
+#                                     "priority"  => "HIGH",
+#                                     "notification"  => {
+#                                         "notification_priority" => "PRIORITY_MAX",
+#                                         "sound"  => "default",
+#                                         "default_sound"  => true,
+#                                         "default_vibrate_timings"  => true,
+#                                         "default_light_timings"  => true
+#                                     }
+#                                 }
+#                             }.to_json)
+#                     #  parsed_response = JSON.parse(response&.body)
+#                     # rescue JSON::ParserError, TypeError => e
+#                     #     puts e
+#                 end
+#             end
+     
+#         end
+#     end
+    
+# end
+
 namespace :user do
     namespace :seed do
         task :create_users => :environment do
-            
-            User.all.each do |user|
-                if user.id == 56
+                user = User.find(1)
+                if user.items.count > 0
                     puts 'Yes'
                     response = HTTParty.post('https://fcm.googleapis.com/fcm/send',
                         headers: { 'Content-Type' => 'application/json'  ,
@@ -64,7 +102,7 @@ namespace :user do
                              body:{
                                 "to"  => "/topics/ahmed",
                                 "notification"  => {
-                                    "title"  => "#{user.username}",
+                                    "title"  => "#{user.items[1].name}",
                                     "body"  => "body2",
                                     "sound"  => "default"
                                 },
@@ -79,11 +117,9 @@ namespace :user do
                                     }
                                 }
                             }.to_json)
-                    #  parsed_response = JSON.parse(response&.body)
-                    # rescue JSON::ParserError, TypeError => e
-                    #     puts e
+                
                 end
-            end
+          
      
         end
     end

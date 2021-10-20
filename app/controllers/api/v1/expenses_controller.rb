@@ -5,9 +5,14 @@ module Api
 
       # GET /expenses
       def index
-        @expenses = Expense.all
+        expenses = Expense.all
+        json = Rails.cache.fetch(Expense.cache_key(expenses)) do
+          Expense.all.to_json
+        end
+    
+        # @expenses = Expense.all
 
-        render json: @expenses
+        render json: json
       end
 
       # GET /expenses/1

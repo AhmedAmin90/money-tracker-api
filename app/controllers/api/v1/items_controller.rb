@@ -5,9 +5,13 @@ module Api
 
       # GET /items
       def index
-        @items = Item.all
+        items = Item.all
+        json = Rails.cache.fetch(Item.cache_key(items)) do
+          Item.all.to_json
+        end
+        # @items = Item.all
 
-        render json: @items
+        render json: json
       end
 
       # GET /items/1
