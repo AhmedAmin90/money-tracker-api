@@ -58,7 +58,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = true
   # config.cache_store = :redis_cache_store, { url: ENV['redis://:p973510dfa7b2b44e4ec7980c7d0c7ba3db0326539257090afe34d3e916e16ce9@ec2-18-211-227-63.compute-1.amazonaws.com:27979'] }
 
-  config.cache_store = :redis_cache_store, { url: 'redis://:p973510dfa7b2b44e4ec7980c7d0c7ba3db0326539257090afe34d3e916e16ce9@ec2-18-211-227-63.compute-1.amazonaws.com:27979',
+  config.cache_store = :redis_cache_store, { url: { url: ENV['redis://:p973510dfa7b2b44e4ec7980c7d0c7ba3db0326539257090afe34d3e916e16ce9@ec2-18-211-227-63.compute-1.amazonaws.com:27979'],
 
     connect_timeout:    30,  # Defaults to 20 seconds
     read_timeout:       0.2, # Defaults to 1 second
